@@ -1,2 +1,6 @@
 # DAA-Assignment
-Created with CodeSandbox
+Run these commands
+
+npm install
+
+npm start

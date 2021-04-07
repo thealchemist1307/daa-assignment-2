@@ -30,9 +30,9 @@ class Home extends React.Component {
             marginBottom: "40px"
           }}
         >
-          A implementation and visulaization of the the "Optimal
+          Implementation and visualization of the the "Optimal
           Divide-and-Conquer to Compute Measure and Contour for a Set of
-          Iso-Rectangles" by Ralf Hartmut Giiting
+          Iso-Rectangles" by Ralf Hartmut Güting
         </h2>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <img

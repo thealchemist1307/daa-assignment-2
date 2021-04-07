@@ -9,23 +9,23 @@ class StudentCarousel extends React.Component {
       student: [
         {
           name: "Deepak George",
-          workedOn: "Founder at Shauryasexual",
+          workedOn: "",
           img: ""
         },
         {
           name: "Nishit Chouhan",
-          workedOn: "Founder at Shauryasexual",
+          workedOn: "",
           img: ""
         },
         {
           name: "Shivang Singh",
-          workedOn: "Founder at Shauryasexual",
+          workedOn: "",
           img: ""
         },
 
         {
           name: "Shivank Thakur",
-          workedOn: "Founder at Shauryasexual",
+          workedOn: "",
           img: ""
         }
       ]

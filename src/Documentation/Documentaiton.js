@@ -32,15 +32,38 @@ class Issues extends React.Component {
           Documentation{" "}
         </h1>
         <div class="row">
-          <h3>Measure Problem </h3>
-          <h5>
-            <a href="/documentation/html1/index.html" target="_blank">
-              Go to Documentation
-            </a>
-          </h5>
-          <h3>
-            Measure Problem : <a href="/measure_problem">Go to Documentation</a>{" "}
-          </h3>
+          <div
+            class="col"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column"
+            }}
+          >
+            <h3>Measure Problem </h3>
+            <h5>
+              <a href="https://thealchemist1307.github.io/measure-problem-documentation/">
+                Go to Documentation
+              </a>
+            </h5>
+          </div>
+          <div
+            class="col"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column"
+            }}
+          >
+            <h3>Contour Problem</h3>
+            <h5>
+              <a href="https://thealchemist1307.github.io/contour-documentation/documentation/html/">
+                Go to Documentation
+              </a>
+            </h5>
+          </div>
         </div>
       </div>
     );

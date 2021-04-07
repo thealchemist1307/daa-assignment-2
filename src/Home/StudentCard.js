@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import ProfielImg from "../Assets/profile.png";
 class StudentCard extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class StudentCard extends React.Component {
         }}
       >
         <img
-          src={require("../Assets/profile.png")}
+          src={ProfielImg}
           style={{
             height: 100,
             width: 100,
@@ -37,9 +37,9 @@ class StudentCard extends React.Component {
         <h1 style={{ textAlign: "center", color: "white" }}>
           {this.props.item.name}
         </h1>
-        <p style={{ color: "white", fontSize: "18px" }}>
+        {/* <p style={{ color: "white", fontSize: "18px" }}>
           Contribution: {this.props.item.workedOn}
-        </p>
+        </p> */}
       </div>
     );
   }

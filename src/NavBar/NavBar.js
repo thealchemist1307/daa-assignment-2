@@ -99,6 +99,7 @@ class NavBar extends React.Component {
         {this.state.tabs.map((item, index) => {
           return (
             <TabButton
+              key={index}
               tab={item.name}
               onClick={() => {
                 this.updateCSS(item.name);
