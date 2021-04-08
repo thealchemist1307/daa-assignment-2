@@ -10,6 +10,7 @@ class Home extends React.Component {
 
   render() {
     return (
+      
       <div style={{ backgroundColor: "#282828", alignItems: "center" }}>
         <h1
           style={{
@@ -17,7 +18,7 @@ class Home extends React.Component {
             textAlign: "center",
             color: "#a756bb",
             marginTop: "40px",
-            marginBottom: "40px"
+            marginBottom: "10px"
           }}
         >
           Design and Analysis of Algorithm Assignment
@@ -27,8 +28,7 @@ class Home extends React.Component {
             alignSelf: "center",
             textAlign: "center",
             color: "rgb(217 170 228)",
-            marginTop: "40px",
-            marginBottom: "40px"
+
           }}
         >
           Implementation and visualization of the Least Segmented Square Algorithm

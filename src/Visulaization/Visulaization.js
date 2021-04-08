@@ -45,6 +45,28 @@ class Visualization extends React.Component {
         strokeWidth: 2
       });
     }
+    for (var i = 0; i < contour.length-1; i++) {
+      console.log("visualize")
+      var p1 = b1.create("point", [contour[i].x1, contour[i].y1], {
+        size: 0,
+        name: "",
+        strokeColor: "blue",
+        highlightFillColor:"blue"
+
+      });
+      var p2 = b1.create("point", [contour[i+1].x2, contour[i+1].y2], {
+        size: 0,
+        name: "",
+
+      });
+      var li = b1.create("line", [p1, p2], {
+        straightFirst: false,
+        straightLast: false,
+        strokeColor: "gray",
+        strokeWidth: 2,
+        dash:2
+      });
+    }
 
     b1.unsuspendUpdate();
   };
@@ -52,12 +74,25 @@ class Visualization extends React.Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: "center" }}>{this.props.title} </h1>
+                        <h3
+                  style={{
+                    textAlign: "center",
+                    width: "-webkit-fill-available"
+                  }}
+                >
+
+                  <p>
+                  {"\n The Penalty value is "+this.props.cvalue}
+                  </p>
+                  <p>
+                  {"\n The Error value is "+this.props.error}
+                </p>
+                </h3>
         <JXGBoard
           logic={this.logicJS}
           boardAttributes={{
             axis: true,
-            boundingbox: [-12, 10, 12, -10],
+            boundingbox: [-1000, 1000, 1000, -1000],
             zoom: {
               factorX: 1.25,
               factorY: 1.25,

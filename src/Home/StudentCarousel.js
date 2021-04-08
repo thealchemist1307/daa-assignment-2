@@ -34,7 +34,7 @@ class StudentCarousel extends React.Component {
 
   render() {
     const settings = {
-      autoplay: false,
+      autoplay: true,
       arrows: true
     };
     return (

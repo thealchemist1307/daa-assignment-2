@@ -26,7 +26,9 @@ class VisPage extends React.Component {
       measure: "",
       input: "5 \n 4 23 \n 0 20 \n 4 11 \n 19 0 \n 5 16 \n 76",
       loading: true,
-      segments: []
+      segments: [],
+      cvalue:"",
+      error:""
     };
   }
   async componentDidMount() {
@@ -39,11 +41,14 @@ class VisPage extends React.Component {
         input: input
       })
       .then(async (res) => {
-        console.log(JSON.parse(res.data).contour)
-        this.setState({
+       await console.log(JSON.parse(res.data).contour)
+       await console.log(JSON.parse(res.data).coords)
+      await  this.setState({
           points: JSON.parse(res.data).coords,
           measure: JSON.parse(res.data).output,
           segments: JSON.parse(res.data).contour,
+          error:JSON.parse(res.data).error,
+          cvalue:JSON.parse(res.data).cvalue,
           loading: false
         });
       });
@@ -66,10 +71,14 @@ class VisPage extends React.Component {
           points: JSON.parse(res.data).coords,
           measure: JSON.parse(res.data).output,
           segments: JSON.parse(res.data).contour,
+          error:JSON.parse(res.data).error,
+          cvalue:JSON.parse(res.data).cvalue,
           loading: false
         });
       });
-    await console.log(this.state.contour);
+    await console.log(this.state.segments);
+    await console.log(this.state.points);
+
   };
   render() {
     return (
@@ -213,9 +222,12 @@ class VisPage extends React.Component {
                     width: "-webkit-fill-available"
                   }}
                 >
-                  {" "}
-                  The solution to the measure problem is{" "}
-                  {this.state.measure.slice(1)}
+                  <p>
+                  {"\n The Penalty value is "+this.state.cvalue}
+                  </p>
+                  <p>
+                  {"\n The Error value is "+this.state.error}
+                </p>
                 </h3>
               ) : (
                 <div
@@ -294,10 +306,10 @@ class VisPage extends React.Component {
           <Visualization
             segments={this.state.segments}
             points={this.state.points}
-            title={
-              "The solution to the measure problem is " +
-              this.state.measure.slice(1)
+            title={              this.state.measure.slice(1)
             }
+            cvalue={this.state.cvalue}
+            error={this.state.error}
           />
         </Modal>
       </div>

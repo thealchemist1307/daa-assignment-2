@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Scrollbars } from "rc-scrollbars";
 import "../Document/Document.css";
-import AlgorithmImage from "../Assets/algorithm3.jpeg";
+import AlgorithmImage from "../Assets/algorithm.png";
 let common = [
   "We define a frame (rectangle) F that encloses all the iso-rectangles.",
   "For the given set of iso-rectangles, their vertical edges are extracted and stored in a sorted manner as E.",
@@ -37,89 +37,23 @@ class Algorithm extends React.Component {
 
           <div class="container">
             <h4 style={{ marginTop: "20px", marginBottom: "20px" }}>
-              The algorithm aims to solve the measure and contour problems using
-              the separational representation approach (divide and conquer), as
-              opposed to line-sweep approach.
+            The algorithm aims to solve the Segmented Least Squares problem that intends to split a given set of n points into segments such that each segment has a best fit line that minimizes the overall sum of squares of error for the complete set of points, provided there is a penalty value associated with introducing a new segment.
+
+
             </h4>
             <h4 style={{ marginTop: "20px", marginBottom: "20px" }}>
-              The algorithm proposes that both the contour and measure problems
-              can be solved easily once we have computed an abstract data
-              structure called stripes.
+            Using the algorithm we intend to minimize the cost function for a given set of points.
+
+
+
             </h4>
-            <div class="row">
-              <div
-                class="col-3"
-                style={{
-                  border: "solid",
-                  borderColor: "#876796",
-                  borderStyle: "1px",
-                  display: "flex",
-                  justifyContent: "center"
-                }}
-              >
-                <h2 style={{ fontWeight: "bold", alignSelf: "center" }}>
-                  Measure Problem :{" "}
-                </h2>
-              </div>
-              <div
-                class="col"
-                style={{
-                  border: "solid",
-                  borderColor: "#876796",
-                  borderStyle: "1px"
-                }}
-              >
-                <h4 style={{}}>
-                  {
-                    "To find the area of the union of given iso oriented rectangles "
-                  }
-                </h4>
-                <h4 style={{ textAlign: "left" }}>
-                  {"stripe :- { x interval, y interval, integer x_union }"}
-                </h4>
-              </div>
-            </div>
-            <div class="row">
-              <div
-                class="col-3"
-                style={{
-                  border: "solid",
-                  borderColor: "#876796",
-                  borderStyle: "1px",
-                  display: "flex",
-                  justifyContent: "center"
-                }}
-              >
-                <h2 style={{ fontWeight: "bold", alignSelf: "center" }}>
-                  Contour Problem :{" "}
-                </h2>
-              </div>
-              <div
-                class="col"
-                style={{
-                  border: "solid",
-                  borderColor: "#876796",
-                  borderStyle: "1px"
-                }}
-              >
-                <h4 style={{}}>
-                  {
-                    "To find the boundary between the free and covered areas of the plane defined by the union of rectangles"
-                  }
-                </h4>
-                <h4 style={{ textAlign: "left" }}>
-                  {"stripe : - {x interval, y interval,ctree* tree}"}
-                </h4>
-                <h4 style={{ textAlign: "left" }}>
-                  {
-                    "ctree : - empty | { int x, lru side, ctree *lson, ctree *rson}"
-                  }
-                </h4>
-                <h4 style={{ textAlign: "left" }}>
-                  {"lru :- { left | right | undef }"}
-                </h4>
-              </div>
-            </div>
+            <h4 style={{fontWeight:'bold',marginTop: "20px", marginBottom: "20px"}}>            Total Cost Function ::= Total Sum of Squares Error + Total Penalty</h4>
+            <h4 style={{fontWeight:'bold',marginTop: "20px", marginBottom: "20px"}}>Total Sum of Squares Error ::=  ∑ (SSE)  ∀ segments</h4>
+            <h4 style={{marginTop: "20px", marginBottom: "20px"}}><span style={{fontWeight:'bold',}}>SSE ::= ∑ (yi - axi -b) </span>, where y=ax+b is the Best Fit Line for the given points.
+</h4>
+            <h4 style={{marginTop: "20px", marginBottom: "20px"}}><span style={{fontWeight:'bold'}}>Total Penalty ::= (number of segments) x penalty value </span>, where penalty value is the penalty introduced for each new segment.
+</h4>
+            
             <div class="row" style={{ marginTop: "40px" }}>
               <h2 style={{ fontWeight: "bold" }}>
                 {" "}

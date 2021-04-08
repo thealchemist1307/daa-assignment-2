@@ -4,16 +4,14 @@ import { Scrollbars } from "rc-scrollbars";
 import "../Document/Document.css";
 
 let issues = [
-  "  Understanding and figuring out notations in the paper based on a lot of references in the paper scattered throughout.",
-  "Implementing C/C++ code from pseudo code in the paper because of the frequent use of set builder notations, universal and existential quantifiers.",
-  "Language specific conventions and rules used in C++ and time complexity analysis",
-  "Unclear diagrams and figures made understanding the working of the algorithm difficult",
-  "Making the code efficient / optimizing code based on inputs from the paper.",
-  "Implementing/defining and using a variety of user-defined data types / structs for every use case",
-  "Checking time complexity for inbuilt C++ functions and its usage along with the overall code.",
-  "Handling and incorporating visualization based on the input and output of the code",
-  "Handling edge cases and building test cases to test robustness and reliability.",
-  "Difficulty in debugging due to extensive use of pointers, data structures like BST, Free Subinterval Query  etc."
+  "Understanding and Implementing the pseudo code and formulas based on the notations used",
+  "Handling precision values and generating test cases",
+  "Implementing timing analysis and memory usage for the program",
+  "Generating and visualizing the results based on various parameters",
+  "Building Documentation and HTML pages for the results.",
+  "Deciding on a convenient format to present the output for visualization",
+  "Learning how to analyze runtime memory usage for a C++ program"
+  
 ];
 
 class Issues extends React.Component {

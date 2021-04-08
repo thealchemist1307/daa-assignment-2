@@ -7,17 +7,21 @@ let refer = [
     name: "Code and Algorithm Implementation",
     comp: [
       {
-        name: "Binary Search Tree - GeeksforGeeks",
-        url: "https://www.geeksforgeeks.org/binary-search-tree-data-structure/"
+        name: "Princeton - Dynamic Programming",
+        url: "https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/06DynamicProgrammingI.pdf "
       },
       {
-        name: "Containers - C++ Reference (cplusplus.com)",
-        url: "https://www.cplusplus.com/reference/stl/"
+        name: "People - Segmented Least Square",
+        url: "https://people.cs.umass.edu/~sheldon/teaching/mhc/cs312/2013sp/Slides/Slides15%20-%20Segmented%20Least%20Squares.pdf "
       },
       {
-        name: "(Optional) C++ Sets with Custom Comparators · USACO Guide",
+        name: "Homes - Lec 25",
         url:
-          "https://www.geeksforgeeks.org/comparator-class-in-c-with-examples/"
+          "https://homes.cs.washington.edu/~jrl/teaching/cse312au10/lec25.pdf "
+      },
+      {
+        name: "Comparator Class in C++ with Examples - GeeksforGeeks",
+        url: "https://www.geeksforgeeks.org/comparator-class-in-c-with-examples/"
       },
       {
         name: "CSV file management using C++ - GeeksforGeeks",
@@ -84,7 +88,7 @@ class References extends React.Component {
               {item.comp.map((child, ind) => {
                 return (
                   <h5 key={ind}>
-                    <a style={{color:'black'}} href={child.url}>{child.name}</a>
+                    <a  href={child.url}>{child.name}</a>
                   </h5>
                 );
               })}

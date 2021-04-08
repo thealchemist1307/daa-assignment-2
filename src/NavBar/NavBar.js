@@ -67,7 +67,7 @@ class NavBar extends React.Component {
         { name: "Analysis", href: "/analysis" },
         { name: "Result", href: "/result" },
         { name: "Visualization", href: "/visualization" },
-        { name: "Documentation", href: "/documentation" },
+        // { name: "Documentation", href: "https://thealchemist1307.github.io/daa-assigment-2-documentation/" },
 
         { name: "Issues", href: "/issues" },
 
@@ -121,6 +121,22 @@ class NavBar extends React.Component {
             </TabButton>
           );
         })}
+            <TabButton
+
+              onClick={() => {
+                this.updateCSS("Documentation");
+              }}
+              onMouseOver={() => {}}
+
+            >
+              <a                 style={{
+                  backgroundColor: "transparent",
+                  paddingTop: "15px",
+                  paddingBottom: "15px"
+                }} href="https://thealchemist1307.github.io/daa-assigment-2-documentation/
+">Documentation</a>
+
+            </TabButton>
       </div>
     );
   }

@@ -3,124 +3,247 @@ import styled from "styled-components";
 import { Scrollbars } from "rc-scrollbars";
 import "./Document.css";
 import Plot from "../Assets/plot.png";
+import TA from "../Assets/ta.jpeg"
+import MA from "../Assets/ma.jpeg"
+import OVP from "../Assets/ovp.jpeg"
+import EVP from "../Assets/evp.jpeg"
 let table = {
-  Sheet1: [
-    {
-      "Subroutine Name": "y_set()",
-      "Time Complexity": "O(n*logn)",
-      Explanation:
-        "iterating through the set of rectangles of size n, and insertion of each of them takes O(logn) time"
-    },
-    {
-      "Subroutine Name": "Y_partition()",
-      "Time Complexity": "O(n*logn)",
-      Explanation:
-        "Iteration through all y_cordinates takes O(n) and in each iteration we insert into a priority queue O(logn)"
-    },
-    {
-      "Subroutine Name": "findFrame()",
-      "Time Complexity": "O(n)",
-      Explanation:
-        "iterates through all the rectangles and finds the minimum and maximum y and x coordinates"
-    },
-    {
-      "Subroutine Name": "set_intersection()",
-      "Time Complexity": "O(n)",
-      Explanation:
-        "Exploits the fact that the sets are in sorted order, and uses the two pointer approach to find intersection"
-    },
-    {
-      "Subroutine Name": "set_difference()",
-      "Time Complexity": "O(n)",
-      Explanation:
-        "Exploits the fact that the sets are in sorted order, and uses the two pointer approach to find intersection"
-    },
-    {
-      "Subroutine Name": "set_union()",
-      "Time Complexity": "O(n)",
-      Explanation: "Adds all elements excluding the duplicates"
-    },
-    {
-      "Subroutine Name": "copy()",
-      "Time Complexity": "O(n*logn)",
-      Explanation:
-        "Takes the intervals(sorted) and the stripes(sorted) and uses two pointer O(n) to find the optimum stripe and then insert into set in O(logn)"
-    },
-    {
-      "Subroutine Name": "blacken()",
-      "Time Complexity": "O(n*logn)",
-      Explanation:
-        "Takes the intervals(sorted) and the stripes(sorted) and uses two pointer O(n) to find the optimum stripe to update x_union and then insert into set in O(logn)"
-    },
-    {
-      "Subroutine Name": "concat()",
-      "Time Complexity": "O(n*logn)",
-      Explanation:
-        "Takes advantage of the ordering of stripes and partitions to update the x_union in O(n) and insert in O(logn),"
-    },
-    {
-      "Subroutine Name": "stripes()",
-      "Time Complexity": "O(n*logn*logn)",
-      Explanation:
-        "T(n)= 2*T(n/2) + O(n*logn)\n2*T(n/2) - call for stripes for left and right vertical edges\nO(n*logn) - bottleneck caused due to concat() / blacken() / copy() . All are O(n*logn) operations."
-    },
-    {
-      "Subroutine Name": "rectangle_DAC()",
-      "Time Complexity": "O(n*logn) + O(n*logn*logn)",
-      Explanation:
-        "Divides the set of vertical edges of the rectangle into two equal sets L and R O(nlogn), and calls the stripes algorithm on this initial division of vertices. The stripes algorithm called inside will take O(nlogn *logn). Returns the final set of vertices to the main function."
-    }
+  "Sheet1": [
+      {
+          "Subroutine Name": "compare_points()",
+          "Time Complexity": "O(1)",
+          "Explanation": "Just compares the x and y coordinates of two points and provides ordering."
+      },
+      {
+          "Subroutine Name": "Sum_Squares_Error_point()",
+          "Time Complexity": "O(1)",
+          "Explanation": "Calculates the Sum of Squares error for a given line and a point."
+      },
+      {
+          "Subroutine Name": "find_cumulative_sum()",
+          "Time Complexity": "O(n)",
+          "Explanation": "Accesses all the input points (O(n)) to calculate the sum of x and y coordinates respectively."
+      },
+      {
+          "Subroutine Name": "find_cumulative_product()",
+          "Time Complexity": "O(n)",
+          "Explanation": "Accesses all the input points (O(n)) to calculate the sum of squares of x coordinates and the sum of product of x and y coordinates for each input."
+      },
+      {
+          "Subroutine Name": "FindBestFit()",
+          "Time Complexity": "O(n)",
+          "Explanation": "Uses helper functions find_cumulative_sum- O(n) and find_cumulative_product- O(n) for a given set of points to calculate best fit."
+      },
+      {
+          "Subroutine Name": "calculateErrorValues()",
+          "Time Complexity": "O(n)",
+          "Explanation": "Creates a sublist of points based on indices O(n) and finds the best fit line for that set O(n) and uses it ot calculate the corresponding error O(n)"
+      },
+      {
+          "Subroutine Name": "segmentedLeastSquares()",
+          "Time Complexity": "O(n*n)",
+          "Explanation": "Since we have already precalculated error values for all (i,j) segments, we compute the recurrence in O(n*n) [ for all possible segments for each j]"
+      },
+      {
+          "Subroutine Name": "findSegments()",
+          "Time Complexity": "O(n*n)",
+          "Explanation": "Recursive function to compute the optimal segments from pre computed values. Uses recurrence relation :\nT(n) = T(n-k) + O(n)"
+      }
   ]
-};
+}
 let analysis = {
-  Sheet1: [
-    {
-      number: "10",
-      measure: "2.9",
-      contour: "4.18"
-    },
-    {
-      number: "100",
-      measure: "34.91",
-      contour: "47.11"
-    },
-    {
-      number: "1000",
-      measure: "314.96",
-      contour: "403.73"
-    },
-    {
-      number: "10000",
-      measure: "2151.77",
-      contour: "2876.42"
-    },
-    {
-      number: "100000",
-      measure: "4038.07",
-      contour: "4932.81"
-    },
-    {
-      number: "200000",
-      measure: "4649.62",
-      contour: "5394.12"
-    },
-    {
-      number: "500000",
-      measure: "5752.18",
-      contour: "6594.72"
-    },
-    {
-      number: "1000000",
-      measure: "6901.01",
-      contour: "8368.35"
-    },
-    {
-      number: "2000000",
-      measure: "10020.13",
-      contour: "13579.42"
-    }
+  "Sheet1": [
+      {
+          "n": "10",
+          "c": "0",
+          "ms": "0.12",
+          "mb": "1.73"
+      },
+      {
+          "n": "10",
+          "c": "85.62",
+          "ms": "0.11",
+          "mb": "1.71"
+      },
+      {
+          "n": "10",
+          "c": "456.89",
+          "ms": "0.14",
+          "mb": "1.72"
+      },
+      {
+          "n": "10",
+          "c": "1187.74",
+          "ms": "0.12",
+          "mb": "1.72"
+      },
+      {
+          "n": "50",
+          "c": "0",
+          "ms": "4.56",
+          "mb": "2.34"
+      },
+      {
+          "n": "50",
+          "c": "85.62",
+          "ms": "4.23",
+          "mb": "1.93"
+      },
+      {
+          "n": "50",
+          "c": "456.89",
+          "ms": "4.52",
+          "mb": "1.96"
+      },
+      {
+          "n": "50",
+          "c": "1187.74",
+          "ms": "4.59",
+          "mb": "1.98"
+      },
+      {
+          "n": "100",
+          "c": "0",
+          "ms": "26.31",
+          "mb": "6.08"
+      },
+      {
+          "n": "100",
+          "c": "85.62",
+          "ms": "21.21",
+          "mb": "3.05"
+      },
+      {
+          "n": "100",
+          "c": "456.89",
+          "ms": "21.69",
+          "mb": "3.06"
+      },
+      {
+          "n": "100",
+          "c": "1187.74",
+          "ms": "22.43",
+          "mb": "3.64"
+      },
+      {
+          "n": "500",
+          "c": "0",
+          "ms": "2091.1",
+          "mb": "503.11"
+      },
+      {
+          "n": "500",
+          "c": "85.62",
+          "ms": "1556.96",
+          "mb": "132.51"
+      },
+      {
+          "n": "500",
+          "c": "456.89",
+          "ms": "1559.83",
+          "mb": "138.57"
+      },
+      {
+          "n": "500",
+          "c": "1187.74",
+          "ms": "1613.18",
+          "mb": "156.35"
+      },
+      {
+          "n": "1000",
+          "c": "0",
+          "ms": "16746.22",
+          "mb": "3643.87"
+      },
+      {
+          "n": "1000",
+          "c": "85.62",
+          "ms": "10824.78",
+          "mb": "642.48"
+      },
+      {
+          "n": "1000",
+          "c": "456.89",
+          "ms": "10795.68",
+          "mb": "658.79"
+      },
+      {
+          "n": "1000",
+          "c": "1187.74",
+          "ms": "17954.36",
+          "mb": "539.69"
+      }
   ]
-};
+}
+let penalty={
+  "Sheet1": [
+      {
+          "Penalty Value (C)": "0",
+          "Total Error": "0",
+          "No. of Optimum Segments": "13"
+      },
+      {
+          "Penalty Value (C)": "10",
+          "Total Error": "55.96",
+          "No. of Optimum Segments": "5"
+      },
+      {
+          "Penalty Value (C)": "100",
+          "Total Error": "505.96",
+          "No. of Optimum Segments": "5"
+      },
+      {
+          "Penalty Value (C)": "1000",
+          "Total Error": "5005.97",
+          "No. of Optimum Segments": "5"
+      },
+      {
+          "Penalty Value (C)": "10000",
+          "Total Error": "50006",
+          "No. of Optimum Segments": "5"
+      },
+      {
+          "Penalty Value (C)": "20000",
+          "Total Error": "96847.4",
+          "No. of Optimum Segments": "4"
+      },
+      {
+          "Penalty Value (C)": "50000",
+          "Total Error": "216847",
+          "No. of Optimum Segments": "4"
+      },
+      {
+          "Penalty Value (C)": "100000",
+          "Total Error": "401195",
+          "No. of Optimum Segments": "3"
+      },
+      {
+          "Penalty Value (C)": "200000",
+          "Total Error": "701195",
+          "No. of Optimum Segments": "3"
+      },
+      {
+          "Penalty Value (C)": "500000",
+          "Total Error": "1317160",
+          "No. of Optimum Segments": "1"
+      },
+      {
+          "Penalty Value (C)": "1000000",
+          "Total Error": "1817160",
+          "No. of Optimum Segments": "1"
+      },
+      {
+          "Penalty Value (C)": "2000000",
+          "Total Error": "2817160",
+          "No. of Optimum Segments": "1"
+      },
+      {
+          "Penalty Value (C)": "5000000",
+          "Total Error": "5817160",
+          "No. of Optimum Segments": "1"
+      }
+  ]
+}
 class Document extends React.Component {
   constructor() {
     super();
@@ -143,10 +266,20 @@ class Document extends React.Component {
       >
         <div style={{ color: "white" }}>
           <h1 style={{ color: "white", textAlign: "center", margin: "20px" }}>
-            Timing Analysis{" "}
+          Timing Analysis and Memory Usage
+{" "}
+
+
           </h1>
 
+
           <div class="container">
+          <h3 style={{ color: "white", textAlign: "center", margin: "20px" }}>
+
+Average Running Time (milliseconds) and Memory Usage (mB) 
+for 10 - Randomly Generated Test cases based on the Number of points (n) and Penalty value (C)  :-
+
+</h3>
             <div class="row">
               <div
                 class="col"
@@ -159,7 +292,9 @@ class Document extends React.Component {
                   textAlign: "center"
                 }}
               >
-                Number of Rectangles{" "}
+
+No. of Points (n)
+
               </div>
               <div
                 class="col"
@@ -172,7 +307,9 @@ class Document extends React.Component {
                   textAlign: "center"
                 }}
               >
-                Time Taken for Measure Problem (ms)
+
+Penalty value (C)
+
               </div>
               <div
                 class="col"
@@ -185,7 +322,24 @@ class Document extends React.Component {
                   textAlign: "center"
                 }}
               >
-                Time Taken for Contour Problem (ms)
+
+Avg Time Taken (ms)
+
+              </div>
+              <div
+                class="col"
+                style={{
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#8c5dba",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  textAlign: "center"
+                }}
+              >
+
+Runtime Memory Usage (mB)
+
               </div>
             </div>
             {analysis.Sheet1.map((item, index) => {
@@ -200,7 +354,7 @@ class Document extends React.Component {
                       textAlign: "center"
                     }}
                   >
-                    {item.number}
+                    {item.n}
                   </div>
                   <div
                     class="col"
@@ -211,7 +365,7 @@ class Document extends React.Component {
                       textAlign: "center"
                     }}
                   >
-                    {item.measure}
+                    {item.c}
                   </div>
                   <div
                     class="col"
@@ -222,7 +376,18 @@ class Document extends React.Component {
                       textAlign: "center"
                     }}
                   >
-                    {item.contour}
+                    {item.ms}
+                  </div>
+                  <div
+                    class="col"
+                    style={{
+                      border: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#8c5dba",
+                      textAlign: "center"
+                    }}
+                  >
+                    {item.mb}
                   </div>
                 </div>
               );
@@ -238,7 +403,30 @@ class Document extends React.Component {
             }}
           >
             <img
-              src={Plot}
+              src={TA}
+              alt="Image"
+              style={{
+                background: "white",
+                alignSelf: "center",
+                width: "50%",
+                marginBottom: 10
+              }}
+            />
+
+          </div>
+
+          <div
+            style={{
+              width: "100%",
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 20
+            }}
+          >
+
+                        <img
+              src={MA}
               alt="Image"
               style={{
                 background: "white",
@@ -248,15 +436,173 @@ class Document extends React.Component {
               }}
             />
           </div>
+            
+          <div class="container">
+          <h1 style={{ color: "white", textAlign: "center", margin: "20px" }}>
+          Experimental Analysis based on Penalty Value (C)  {" "}
+          </h1>
+          <h4 style={{ margin: "20px" }}>
+          Penalty value indicates that component of the total cost function that is incurred due to the introduction of a new segment.            </h4>
+            <h4 style={{ margin: "20px" }}>
+            For the given set of randomly generated input points , we perform an analysis on the variation of error values (Sum of Squares Error) and the number of optimum segments with change in penalty values(c):-</h4>         </div>
+
+          <div class="container">
+            <div class="row">
+              <div
+                class="col"
+                style={{
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#8c5dba",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  textAlign: "center"
+                }}
+              >
+
+Penalty Value (C)
+
+              </div>
+              <div
+                class="col"
+                style={{
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#8c5dba",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  textAlign: "center"
+                }}
+              >
+
+
+Total Error
+
+
+              </div>
+              <div
+                class="col"
+                style={{
+                  border: "solid",
+                  borderWidth: "1px",
+                  borderColor: "#8c5dba",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  textAlign: "center"
+                }}
+              >
+
+No. of Optimum Segments
+              </div>
+
+            </div>
+            {penalty.Sheet1.map((item, index) => {
+              return (
+                <div class="row">
+                  <div
+                    class="col"
+                    style={{
+                      border: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#8c5dba",
+                      textAlign: "center"
+                    }}
+                  >
+                    {item["Penalty Value (C)"]}
+                  </div>
+                  <div
+                    class="col"
+                    style={{
+                      border: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#8c5dba",
+                      textAlign: "center"
+                    }}
+                  >
+                    {item["Total Error"]}
+                  </div>
+                  <div
+                    class="col"
+                    style={{
+                      border: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#8c5dba",
+                      textAlign: "center"
+                    }}
+                  >
+                    {item["No. of Optimum Segments"]}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
+
+
+
+
+
+
+          <div class="container">
+          <h1 style={{ color: "white", textAlign: "center", margin: "20px" }}>
+            Observation{" "}
+          </h1>
+          <h2 style={{ margin: "20px" }}>
+          The Error value increases by a fixed value if the number of segments don’t change with increase in penalty value. But if we vary the penalty value by a large amount, the optimal number of segments changes and that changes the corresponding Error value.
+            </h2>
+            <h2 style={{ margin: "20px" }}>
+            No substantial change was observed in the running time and memory consumption of the code when we change the penalty value for a given set of points.            </h2>
+            </div>
+            <div
+            style={{
+              width: "100%",
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 20
+            }}
+          >
+            <img
+              src={EVP}
+              alt="Image"
+              style={{
+                background: "white",
+                alignSelf: "center",
+                width: "50%",
+                marginBottom: 10
+              }}
+            />
+
+          </div>
+
+          <div
+            style={{
+              width: "100%",
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 20
+            }}
+          >
+
+                        <img
+              src={OVP}
+              alt="Image"
+              style={{
+                background: "white",
+                alignSelf: "center",
+                width: "50%",
+                marginBottom: 10
+              }}
+            />
+          </div>
+          <div class="container">   
           <h1 style={{ color: "white", textAlign: "center", margin: "20px" }}>
             Calculating the Time Complexity{" "}
           </h1>
-
-          <div class="container">
             <h2 style={{ margin: "20px" }}>
-              The Complexity Analysis for the common subroutines involved in our
-              implementation of Guting’s algorithm for the Measure problem and
-              Contour problem:
+            The Complexity Analysis for the common subroutines involved in our implementation of Segmented Least Squares Problem:-
             </h2>
             <div class="row">
               <div
@@ -332,91 +678,7 @@ class Document extends React.Component {
                 </div>
               );
             })}
-            <div
-              style={{
-                marginTop: "40px",
-                marginBottom: "40px"
-              }}
-            >
-              <h2 style={{ fontWeight: "bold" }}>
-                Additional Subroutine for Measure problem:-
-              </h2>
-              <h5>
-                <span style={{ fontWeight: "bold" }}>measure() - O(n) -</span>{" "}
-                iterates through all the stripes and computes the total
-              </h5>
-            </div>
-            <div
-              style={{
-                fontWeight: "bold",
-                marginTop: "40px",
-                marginBottom: "40px"
-              }}
-            >
-              <h2 style={{ fontWeight: "bold" }}>
-                Overall Time Complexity for Measure Problem:-
-              </h2>
-              <h5>
-                = Taking input from user + findFrame() + rectangle_DAC() +
-                measure()
-              </h5>
-              <h5>= O(n) + O(n) + O(n*logn*logn) + O(n)</h5>
-              <h5>= O(n*logn*logn)</h5>
-            </div>
-            <div
-              style={{
-                marginTop: "40px",
-                marginBottom: "40px"
-              }}
-            >
-              <h2 style={{ fontWeight: "bold" }}>
-                Additional Subroutine for Contour problem:-
-              </h2>
-              <h5>
-                <span style={{ fontWeight: "bold" }}>
-                  contour() - O(n^2) -{" "}
-                </span>
-                iterates through all the horizontal edges and for each edge and
-                the set of stripes calls contour_pieces (O(n)) to get a set of
-                line segments, each of which is used to generate the horizontal
-                contours (O(n)).
-              </h5>
 
-              <h5>
-                <span style={{ fontWeight: "bold" }}>
-                  contour_pieces() - O(n) -
-                </span>
-                There are multiple O(n) operations (iterate through all stripes,
-                ctree nodes, set of intervals J) along with a call to
-                inorder_find() which takes O(logn) time, but all of them occur
-                in parallel and hence overall complexity is O(n)
-              </h5>
-              <h5>
-                <span style={{ fontWeight: "bold" }}>
-                  inorder_find() - O(logn) -
-                </span>
-                It is a recursive function with the recurrence relation given by
-                T(n) = 2T(n/2) + O(1). The solution to this recurrence relation
-                is T(n) = O(logn).
-              </h5>
-            </div>
-            <div
-              style={{
-                fontWeight: "bold",
-                marginTop: "40px",
-                marginBottom: "40px"
-              }}
-            >
-              <h2 style={{ fontWeight: "bold" }}>
-                Overall Time Complexity for Contour Problem:-
-              </h2>
-              <h5>
-                = Taking input from user + findFrame() + rectangle_DAC() +
-                contour()
-              </h5>
-              <h5>= O(n) + O(n) + O(n*logn*logn) + O(n^2)</h5>
-              <h5>= O(n^2)</h5>
-            </div>
           </div>
         </div>
       </Scrollbars>
