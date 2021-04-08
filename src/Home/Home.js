@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import StudentCarousel from "./StudentCarousel";
+import Segmented from "../Assets/segmented.png"
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -9,12 +10,12 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#191414", alignItems: "center" }}>
+      <div style={{ backgroundColor: "#282828", alignItems: "center" }}>
         <h1
           style={{
             alignSelf: "center",
             textAlign: "center",
-            color: "white",
+            color: "#a756bb",
             marginTop: "40px",
             marginBottom: "40px"
           }}
@@ -25,18 +26,16 @@ class Home extends React.Component {
           style={{
             alignSelf: "center",
             textAlign: "center",
-            color: "white",
+            color: "rgb(217 170 228)",
             marginTop: "40px",
             marginBottom: "40px"
           }}
         >
-          Implementation and visualization of the the "Optimal
-          Divide-and-Conquer to Compute Measure and Contour for a Set of
-          Iso-Rectangles" by Ralf Hartmut Güting
+          Implementation and visualization of the Least Segmented Square Algorithm
         </h2>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <img
-            src="https://miro.medium.com/max/855/1*SfBEvWNJpmLRf-Lj_M5f-g.png"
+            src={Segmented}
             alt="Image"
             style={{ alignSelf: "center", height: "200px", width: "400px" }}
           />

@@ -153,7 +153,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold",
                   textAlign: "center"
@@ -166,7 +166,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold",
                   textAlign: "center"
@@ -179,7 +179,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold",
                   textAlign: "center"
@@ -196,7 +196,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato",
+                      borderColor: "#8c5dba",
                       textAlign: "center"
                     }}
                   >
@@ -207,7 +207,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato",
+                      borderColor: "#8c5dba",
                       textAlign: "center"
                     }}
                   >
@@ -218,7 +218,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato",
+                      borderColor: "#8c5dba",
                       textAlign: "center"
                     }}
                   >
@@ -264,7 +264,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold"
                 }}
@@ -276,7 +276,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold"
                 }}
@@ -288,7 +288,7 @@ class Document extends React.Component {
                 style={{
                   border: "solid",
                   borderWidth: "1px",
-                  borderColor: "tomato",
+                  borderColor: "#8c5dba",
                   fontSize: "20px",
                   fontWeight: "bold"
                 }}
@@ -304,7 +304,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato"
+                      borderColor: "#8c5dba"
                     }}
                   >
                     {item["Subroutine Name"]}
@@ -314,7 +314,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato"
+                      borderColor: "#8c5dba"
                     }}
                   >
                     {item["Time Complexity"]}
@@ -324,7 +324,7 @@ class Document extends React.Component {
                     style={{
                       border: "solid",
                       borderWidth: "1px",
-                      borderColor: "tomato"
+                      borderColor: "#8c5dba"
                     }}
                   >
                     {item.Explanation}

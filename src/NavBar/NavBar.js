@@ -85,13 +85,13 @@ class NavBar extends React.Component {
       padding-top: 15px;
       padding-bottom: 15px;
       background-color: ${(props) =>
-        props.tab == this.state.active ? "tomato" : "#333"};
+        props.tab == this.state.active ? "#643d99" : "#333"};
       &:hover {
         color: blue;
         background-color: ${(props) =>
           props.tab == this.state.active
-            ? "orange"
-            : "tomato"}; // <Thing> when hovered
+            ? "#876796"
+            : "#876796"}; // <Thing> when hovered
       }
     `;
     return (

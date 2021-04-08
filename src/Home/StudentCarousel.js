@@ -38,10 +38,10 @@ class StudentCarousel extends React.Component {
       arrows: true
     };
     return (
-      <div>
-        <span style={{ fontSize: 25, fontWeight: "bold", color: "white" }}>
+      <div style={{marginTop:"60px",borderStyle:'solid',borderTopWidth:'4px',borderTopColor:'#a756bb'}}>
+        {/* <span style={{ fontSize: 25, fontWeight: "bold", color: "white" }}>
           Group Members
-        </span>
+        </span> */}
         <Slider {...settings}>
           {this.state.student.map((item, index) => {
             return <StudentCard item={item} key={index} />;

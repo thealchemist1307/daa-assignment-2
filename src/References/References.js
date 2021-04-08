@@ -84,7 +84,7 @@ class References extends React.Component {
               {item.comp.map((child, ind) => {
                 return (
                   <h5 key={ind}>
-                    <a href={child.url}>{child.name}</a>
+                    <a style={{color:'black'}} href={child.url}>{child.name}</a>
                   </h5>
                 );
               })}

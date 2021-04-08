@@ -16,7 +16,7 @@ class StudentCard extends React.Component {
           alignItems: "center",
           alignContent: "center",
           alignSelf: "center",
-          backgroundColor: "tomato",
+          backgroundColor: "#000000",
           height: "400px",
           justifyContent: "center"
         }}
@@ -34,7 +34,7 @@ class StudentCard extends React.Component {
           }}
           alt="Img"
         />
-        <h1 style={{ textAlign: "center", color: "white" }}>
+        <h1 style={{ textAlign: "center", color: "#a756bb",marginTop:"30px" }}>
           {this.props.item.name}
         </h1>
         {/* <p style={{ color: "white", fontSize: "18px" }}>

@@ -51,7 +51,7 @@ class Algorithm extends React.Component {
                 class="col-3"
                 style={{
                   border: "solid",
-                  borderColor: "tomato",
+                  borderColor: "#876796",
                   borderStyle: "1px",
                   display: "flex",
                   justifyContent: "center"
@@ -65,7 +65,7 @@ class Algorithm extends React.Component {
                 class="col"
                 style={{
                   border: "solid",
-                  borderColor: "tomato",
+                  borderColor: "#876796",
                   borderStyle: "1px"
                 }}
               >
@@ -84,7 +84,7 @@ class Algorithm extends React.Component {
                 class="col-3"
                 style={{
                   border: "solid",
-                  borderColor: "tomato",
+                  borderColor: "#876796",
                   borderStyle: "1px",
                   display: "flex",
                   justifyContent: "center"
@@ -98,7 +98,7 @@ class Algorithm extends React.Component {
                 class="col"
                 style={{
                   border: "solid",
-                  borderColor: "tomato",
+                  borderColor: "#876796",
                   borderStyle: "1px"
                 }}
               >

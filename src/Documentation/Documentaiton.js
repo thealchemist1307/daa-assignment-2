@@ -43,7 +43,7 @@ class Issues extends React.Component {
           >
             <h3>Measure Problem </h3>
             <h5>
-              <a href="https://thealchemist1307.github.io/measure-problem-documentation/">
+              <a style={{color:'black'}} href="https://thealchemist1307.github.io/measure-problem-documentation/">
                 Go to Documentation
               </a>
             </h5>
@@ -59,7 +59,7 @@ class Issues extends React.Component {
           >
             <h3>Contour Problem</h3>
             <h5>
-              <a href="https://thealchemist1307.github.io/contour-documentation/documentation/html/">
+              <a style={{color:'black'}} href="https://thealchemist1307.github.io/contour-documentation/documentation/html/">
                 Go to Documentation
               </a>
             </h5>

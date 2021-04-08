@@ -21,50 +21,51 @@ class VisPage extends React.Component {
     this.state = {
       frame: [1, 2, 3, 4],
       rectangleArray: [[]],
-      coord: [],
+      points: [],
       isOpen: false,
       measure: "",
       input: "2 \n 1 2 3 4 \n 4 5 6 7",
       loading: true,
-      contour: []
+      segments: []
     };
   }
   async componentDidMount() {
     var input = "2 \n 1 2 3 4 \n 4 5 6 7";
-    await axios.post("https://daabackend.herokuapp.com/api/coordinates", {
+    await axios.post("https://daabackend.herokuapp.com/api/lsq", {
       input: input
     });
     await axios
-      .post("https://daabackend.herokuapp.com/api/coordinates", {
+      .post("https://daabackend.herokuapp.com/api/lsq", {
         input: input
       })
       .then(async (res) => {
+        console.log(JSON.parse(res.data).contour)
         this.setState({
-          coord: JSON.parse(res.data).coords,
+          points: JSON.parse(res.data).coords,
           measure: JSON.parse(res.data).output,
-          contour: JSON.parse(res.data).contour,
+          segments: JSON.parse(res.data).contour,
           loading: false
         });
       });
-    await console.log(this.state.contour);
+    await console.log(this.state.segments);
   }
   openModal = () => {
     this.setState({ isOpen: true, loading: true });
   };
   runCode = async () => {
     this.setState({ loading: true });
-    await axios.post("https://daabackend.herokuapp.com/api/coordinates", {
+    await axios.post("https://daabackend.herokuapp.com/api/lsq", {
       input: this.state.input
     });
     await axios
-      .post("https://daabackend.herokuapp.com/api/coordinates", {
+      .post("https://daabackend.herokuapp.com/api/lsq", {
         input: this.state.input
       })
       .then(async (res) => {
         this.setState({
-          coord: JSON.parse(res.data).coords,
+          points: JSON.parse(res.data).coords,
           measure: JSON.parse(res.data).output,
-          contour: JSON.parse(res.data).contour,
+          segments: JSON.parse(res.data).contour,
           loading: false
         });
       });
@@ -180,7 +181,7 @@ class VisPage extends React.Component {
               onClick={this.runCode}
               style={{
                 alignSelf: "center",
-                backgroundColor: "tomato",
+                backgroundColor: "#8c5dba",
                 paddingTop: "10px",
                 paddingBottom: "10px",
                 paddingRight: "20px",
@@ -219,7 +220,7 @@ class VisPage extends React.Component {
                 >
                   <ReactLoading
                     type="bars"
-                    color="tomato"
+                    color="#8c5dba"
                     height={"50%"}
                     width={"50px"}
                   />
@@ -236,7 +237,7 @@ class VisPage extends React.Component {
                 }}
                 style={{
                   alignSelf: "center",
-                  backgroundColor: "tomato",
+                  backgroundColor: "#8c5dba",
                   paddingTop: "10px",
                   paddingBottom: "10px",
                   paddingRight: "20px",
@@ -246,7 +247,7 @@ class VisPage extends React.Component {
                   width: "-webkit-fill-available"
                 }}
                 type="button"
-                class="btn-lg btn-danger"
+                class="btn-lg btn-primary"
               >
                 Visualize
               </button>
@@ -256,7 +257,7 @@ class VisPage extends React.Component {
                 }}
                 style={{
                   alignSelf: "center",
-                  backgroundColor: "tomato",
+                  backgroundColor: "#8c5dba",
                   paddingTop: "10px",
                   paddingBottom: "10px",
                   paddingRight: "20px",
@@ -267,7 +268,7 @@ class VisPage extends React.Component {
                   width: "-webkit-fill-available"
                 }}
                 type="button"
-                class="btn-lg btn-danger"
+                class="btn-lg btn-primary"
               >
                 Run
               </button>
@@ -284,8 +285,8 @@ class VisPage extends React.Component {
           }}
         >
           <Visualization
-            contour={this.state.contour}
-            coords={this.state.coord}
+            segments={this.state.segments}
+            points={this.state.points}
             title={
               "The solution to the measure problem is " +
               this.state.measure.slice(1)

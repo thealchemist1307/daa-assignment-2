@@ -150,7 +150,7 @@ class Result extends React.Component {
               style={{
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "tomato",
+                borderColor: "#8c5dba",
                 fontWeight: "bold"
               }}
             >
@@ -161,7 +161,7 @@ class Result extends React.Component {
               style={{
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "tomato",
+                borderColor: "#8c5dba",
                 fontWeight: "bold"
               }}
             >
@@ -172,7 +172,7 @@ class Result extends React.Component {
               style={{
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "tomato",
+                borderColor: "#8c5dba",
                 fontWeight: "bold"
               }}
             >
@@ -188,7 +188,7 @@ class Result extends React.Component {
                   style={{
                     borderWidth: "2px",
                     borderStyle: "solid",
-                    borderColor: "tomato",
+                    borderColor: "#8c5dba",
                     fontWeight: "bold"
                   }}
                 >
@@ -199,7 +199,7 @@ class Result extends React.Component {
                   style={{
                     borderWidth: "2px",
                     borderStyle: "solid",
-                    borderColor: "tomato",
+                    borderColor: "#8c5dba",
                     fontWeight: "bold"
                   }}
                 >
@@ -210,7 +210,7 @@ class Result extends React.Component {
                   style={{
                     borderWidth: "2px",
                     borderStyle: "solid",
-                    borderColor: "tomato",
+                    borderColor: "#8c5dba",
                     fontWeight: "bold"
                   }}
                 >
