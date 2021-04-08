@@ -26,12 +26,17 @@ class Visualization extends React.Component {
     for (var i = 0; i < contour.length; i++) {
       console.log("visualize")
       var p1 = b1.create("point", [contour[i].x1, contour[i].y1], {
-        size: 0,
-        name: ""
+        size: 2,
+        name: "",
+        strokeColor: "blue",
+        highlightFillColor:"blue"
+
       });
       var p2 = b1.create("point", [contour[i].x2, contour[i].y2], {
-        size: 0,
-        name: ""
+        size: 2,
+        name: "",
+        strokeColor: "blue",
+        highlightFillColor:"blue"
       });
       var li = b1.create("line", [p1, p2], {
         straightFirst: false,

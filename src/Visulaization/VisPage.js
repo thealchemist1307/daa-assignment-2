@@ -24,13 +24,13 @@ class VisPage extends React.Component {
       points: [],
       isOpen: false,
       measure: "",
-      input: "2 \n 1 2 3 4 \n 4 5 6 7",
+      input: "5 \n 4 23 \n 0 20 \n 4 11 \n 19 0 \n 5 16 \n 76",
       loading: true,
       segments: []
     };
   }
   async componentDidMount() {
-    var input = "2 \n 1 2 3 4 \n 4 5 6 7";
+    var input = "5 \n 4 23 \n 0 20 \n 4 11 \n 19 0 \n 5 16 \n 76";
     await axios.post("https://daabackend.herokuapp.com/api/lsq", {
       input: input
     });
@@ -146,11 +146,14 @@ class VisPage extends React.Component {
                   flexDirection: "column"
                 }}
               >
-                <h2> No. of Rectangles</h2>
+                <h2> No. of Points</h2>
                 <div style={{ height: "20px" }} />
 
-                <h4>Rectangle Parameters </h4>
-                <h4>xmin xmax ymin ymax </h4>
+                <h2>Coordinates </h2>
+                <h2>x y </h2>
+                <div style={{ height: "20px" }} />
+                <h2 style={{marginTop:"120px"}}> Penalty Value (c)</h2>
+
               </div>
               <div
                 class="col "
@@ -161,11 +164,15 @@ class VisPage extends React.Component {
                 }}
               >
                 <h2>3</h2>
-                <div style={{ height: "20px" }} />
-                <h2>0 10 0 5 </h2>
-                <h2>15 26 0 5 </h2>
-                <h2>4 20 4 14 </h2>
+              <div style={{ height: "20px" }} />
+                <h2>4 23</h2>
+                <h2>0 20 </h2>
+                <h2>4 11</h2>
+                <h2>19 0</h2>
+                <h2>5 16</h2>
+                <h3 style={{marginTop:"0px"}}>76</h3>
               </div>
+
             </div>
           </div>
           <div
